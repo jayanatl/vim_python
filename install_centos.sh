@@ -7,5 +7,5 @@ unzip repo.zip
 rm repo.zip
 mv vim_python* ~/.dotfiles
 cd ~/.dotfiles
-sudo bash setup_centos.sh
+bash setup_centos.sh
 popd
