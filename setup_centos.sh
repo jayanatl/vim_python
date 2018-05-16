@@ -2,6 +2,12 @@
 
 source ./lib_sh/echos.sh
 bot "Hi! I'm going to setup this machine. Here I go..."
+read -r -p "What is your github.com username? " githubuser
+read -r -p "What is your first name? " firstname
+read -r -p "What is your last name? " lastname
+read -r -p "What is your email? " email
+fullname="$firstname $lastname"
+bot "Greatings $fullname, "
 
 bot "Configuring EPEL Repository"
 sudo yum install epel-release -y
@@ -26,12 +32,6 @@ clear
 bot "Configuring git"
 grep 'user = GITHUBUSER' ./homedir/.gitconfig > /dev/null 2>&1
 if [[ $? = 0 ]]; then
-    read -r -p "What is your github.com username? " githubuser
-    read -r -p "What is your first name? " firstname
-    read -r -p "What is your last name? " lastname
-    read -r -p "What is your email? " email
-    fullname="$firstname $lastname"
-    bot "Great $fullname, "
     sed -i "s/GITHUBFULLNAME/$firstname $lastname/" ./homedir/.gitconfig > /dev/null 2>&1
     sed -i 's/GITHUBEMAIL/'$email'/' ./homedir/.gitconfig
     sed -i 's/GITHUBUSER/'$githubuser'/' ./homedir/.gitconfig
