@@ -15,7 +15,7 @@ bot "Install python3 and other necessary tools"
 sudo yum -y install python36u python36-pip python36-setuptools git wget curl tree tmux mlocate
 
 bot "Setting up neovim"
-curl -o /etc/yum.repos.d/dperson-neovim-epel-7.repo https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo
+sudo curl -o /etc/yum.repos.d/dperson-neovim-epel-7.repo https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo
 sudo yum -y install neovim
 
 bot "Configuring git"
