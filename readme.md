@@ -10,16 +10,16 @@ bash <(curl -L https://raw.githubusercontent.com/jayanatl/vim_python/initial_pro
 
 
 ## TODO
-[x] Create a skeleton structure for the repo
-[x] Basic prototype
-[x] Configure Autoload Alias, PATH, functions, variables
-[x] System update
-[x] Install Python(2,3), pip(2,3), and other useful tools
-[x] Install neovim
-[ ] Setup and test python support for nvim
-[ ] Configure code completion for nvim
-[ ] Configure skyline
-[ ] Configure 
+- [x] Create a skeleton structure for the repo
+- [x] Basic prototype
+- [x] Configure Autoload Alias, PATH, functions, variables
+- [x] System update
+- [x] Install Python(2,3), pip(2,3), and other useful tools
+- [x] Install neovim
+- [ ] Setup and test python support for nvim
+- [ ] Configure code completion for nvim
+- [ ] Configure skyline
+- [ ] Configure 
 
 ---
 # WARNING
