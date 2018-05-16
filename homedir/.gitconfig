@@ -2,7 +2,6 @@
   name = GITHUBFULLNAME
   email = GITHUBEMAIL
 [github]
-  # https://github.com/blog/180-local-github-config
   user = GITHUBUSER
 [color]
 # ui = true is a superset of all the more specific color options

@@ -12,7 +12,10 @@ sudo yum -y update
 
 bot "Install python3 and other necessary tools"
 #sudo yum install fzf
-sudo yum -y install python36u python36-pip python36-setuptools git wget curl tree tmux mlocate
+sudo yum -y install python-pip python36u python36u-pip git wget curl tree tmux mlocate
+mkdir ~/bin
+ln -s /usr/bin/python3.6 ~/bin/python3
+ln -s /usr/bin/pip3.6 ~/bin/pip3
 
 bot "Setting up neovim"
 sudo curl -o /etc/yum.repos.d/dperson-neovim-epel-7.repo https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo
@@ -25,12 +28,12 @@ if [[ $? = 0 ]]; then
     read -r -p "What is your first name? " firstname
     read -r -p "What is your last name? " lastname
     read -r -p "What is your email? " email
+    fullname="$firstname $lastname"
+    bot "Great $fullname, "
+    sed -i "s/GITHUBFULLNAME/$firstname $lastname/" ./homedir/.gitconfig > /dev/null 2>&1
+    sed -i 's/GITHUBEMAIL/'$email'/' ./homedir/.gitconfig
+    sed -i 's/GITHUBUSER/'$githubuser'/' ./homedir/.gitconfig
 fi
-fullname="$firstname $lastname"
-bot "Great $fullname, "
-sed -i "s/GITHUBFULLNAME/$firstname $lastname/" ./homedir/.gitconfig > /dev/null 2>&1
-sed -i 's/GITHUBEMAIL/'$email'/' ./homedir/.gitconfig
-sed -i 's/GITHUBUSER/'$githubuser'/' ./homedir/.gitconfig
 
 bot "creating symlinks for project dotfiles..."
 pushd homedir > /dev/null 2>&1
