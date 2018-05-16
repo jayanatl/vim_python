@@ -5,12 +5,14 @@ bot "Hi! I'm going to setup this machine. Here I go..."
 
 bot "Configuring EPEL Repository"
 sudo yum install epel-release -y
+sudo yum -y localinstall https://centos7.iuscommunity.org/ius-release.rpm
 
 bot "Update packages"
 sudo yum -y update
 
 bot "Install python3 and other necessary tools"
-sudo yum -y install vim python-36* virtualenvwrapper git wget curl tree tmux mlocate fzf
+#sudo yum install fzf
+sudo yum -y install python36u python36-pip python36-setuptools git wget curl tree tmux mlocate
 
 bot "Setting up neovim"
 curl -o /etc/yum.repos.d/dperson-neovim-epel-7.repo https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo
@@ -59,6 +61,7 @@ mkdir -p ~/bin
     # add fzf related stuff
     # setup virtual env wrapper 
     # wget bashrc
+echo "source ~/.profile" >> ~/.bashrc
 
 # Setup python
   # Install python3
