@@ -21,10 +21,11 @@ bot "Setting up neovim"
 sudo curl -o /etc/yum.repos.d/dperson-neovim-epel-7.repo https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo
 sudo yum -y install neovim
 
+clear
+
 bot "Configuring git"
 grep 'user = GITHUBUSER' ./homedir/.gitconfig > /dev/null 2>&1
 if [[ $? = 0 ]]; then
-    while read -r -t 0; do read -r; done
     read -r -p "What is your github.com username? " githubuser
     read -r -p "What is your first name? " firstname
     read -r -p "What is your last name? " lastname
