@@ -5,8 +5,8 @@ bash <(curl -L https://raw.githubusercontent.com/jayanatl/vim_python/initial_pro
 ```
 
 
-## Fix
-[ ] Fix output generated while creating links to dotfiles
+## BugFix:
+-[ ] Fix output generated while creating links to dotfiles
 
 
 ## TODO
