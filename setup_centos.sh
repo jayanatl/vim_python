@@ -64,7 +64,7 @@ mkdir -p ~/bin
     # add fzf related stuff
     # setup virtual env wrapper 
     # wget bashrc
-echo "source ~/.profile" >> ~/.bashrc
+grep 'source ~/.profile' ~/.bashrc || echo "source ~/.profile" >> ~/.bashrc
 
 # Setup python
   # Install python3
