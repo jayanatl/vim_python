@@ -16,6 +16,8 @@ sudo yum -y install python-pip python36u python36u-pip git wget curl tree tmux m
 mkdir ~/bin
 ln -s /usr/bin/python3.6 ~/bin/python3
 ln -s /usr/bin/pip3.6 ~/bin/pip3
+sudo /usr/bin/pip3.6 install virtualenvwrapper
+
 
 bot "Setting up neovim"
 sudo curl -o /etc/yum.repos.d/dperson-neovim-epel-7.repo https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo
@@ -55,7 +57,7 @@ for file in .*; do
   unlink ~/$file > /dev/null 2>&1
   # create the link
   ln -s ~/.dotfiles/homedir/$file ~/$file
-  echo -en '\tlinked'
+  echo '${file} linked'
 done
 
 popd > /dev/null 2>&1
@@ -65,12 +67,9 @@ popd > /dev/null 2>&1
 mkdir -p ~/bin
     # add fzf related stuff
     # setup virtual env wrapper 
-    # wget bashrc
 grep 'source ~/.profile' ~/.bashrc || echo "source ~/.profile" >> ~/.bashrc
 
-# Setup python
-  # Install python3
-  # wget pythonrc
+
 
 # Configure git
   # Wget gitconf
