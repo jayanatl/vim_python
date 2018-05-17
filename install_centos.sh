@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# Sanity check
+[ -f /etc/centos-release ] || { error "This script of for CentOS 7+"; exit 127; }
+
 rm -rf /tmp/repo &>/dev/null
 mkdir -p /tmp/repo
 cd /tmp/repo
