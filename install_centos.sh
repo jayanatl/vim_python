@@ -6,11 +6,11 @@
 rm -rf /tmp/repo &>/dev/null
 mkdir -p /tmp/repo
 cd /tmp/repo
-curl -L https://github.com/jayanatl/vim_python/archive/initial_prototype.zip > repo.zip
-yum -y install unzip
+curl -L https://github.com/jayanatl/dotfiles/archive/initial_prototype.zip > repo.zip
+sudo yum -y install unzip
 unzip repo.zip
 rm repo.zip
-mv vim_python* ~/.dotfiles
+mv dotfiles* ~/.dotfiles
 cd ~/.dotfiles
 rm -rf /tmp/repo
 bash setup_centos.sh
