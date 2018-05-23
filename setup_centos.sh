@@ -23,8 +23,7 @@ bot "Installing neovim"
 sudo curl -o /etc/yum.repos.d/dperson-neovim-epel-7.repo https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo
 sudo yum -y install neovim
 
-bot "setting up neovim"
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 
 #TODO:
 # Check installation of Plug without opening vim by vim +PluginInstall +qall
@@ -75,3 +74,18 @@ popd > /dev/null 2>&1
 # Configure BASH
 mkdir -p ~/bin
 grep 'source ~/.profile' ~/.bashrc || echo "source ~/.profile" >> ~/.bashrc
+
+
+bot "setting up neovim"
+
+virtualenv --python=python ~/.config/nvim/venv/python2
+source ~/.config/nvim/venv/python2/bin/activate
+pip install neovim
+deactivate
+
+virtualenv --python=python3 ~/.config/nvim/venv/python3
+source ~/.config/nvim/venv/python3/bin/activate
+pip install neovim
+deactivate
+
+nvim +PlugInstall +qall
