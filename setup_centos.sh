@@ -80,4 +80,4 @@ source ~/.config/nvim/venv/python3/bin/activate
 pip install neovim
 deactivate
 
-nvim +PlugInstall +qall
+nvim -E +PlugInstall +qall
