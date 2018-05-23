@@ -3,7 +3,6 @@
 source ./lib_sh/echos.sh
 bot "Hi! I'm going to setup this machine. Here I go..."
 
-clear
 bot "Configuring git"
 grep 'user = GITHUBUSER' ./homedir/.gitconfig > /dev/null 2>&1
 if [[ $? = 0 ]]; then
