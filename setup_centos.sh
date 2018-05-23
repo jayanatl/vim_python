@@ -65,7 +65,7 @@ for file in .*; do
   unlink ~/$file > /dev/null 2>&1
   # create the link
   ln -s ~/.dotfiles/homedir/$file ~/$file
-  echo "${file} linked"
+  echo ${file} linked
 done
 
 popd > /dev/null 2>&1
@@ -74,6 +74,7 @@ popd > /dev/null 2>&1
 # Configure BASH
 mkdir -p ~/bin
 grep 'source ~/.profile' ~/.bashrc || echo "source ~/.profile" >> ~/.bashrc
+source ~/.bashrc
 
 
 bot "setting up neovim"
