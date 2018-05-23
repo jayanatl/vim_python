@@ -65,7 +65,7 @@ for file in .*; do
   unlink ~/$file > /dev/null 2>&1
   # create the link
   ln -s ~/.dotfiles/homedir/$file ~/$file
-  echo ${file} linked
+  echo linking ${file}; ok
 done
 
 popd > /dev/null 2>&1
