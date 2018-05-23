@@ -6,7 +6,7 @@
 rm -rf /tmp/repo &>/dev/null
 mkdir -p /tmp/repo
 cd /tmp/repo
-curl -L https://github.com/jayanatl/dotfiles/archive/initial_prototype.zip > repo.zip
+curl -L https://github.com/jayanatl/dotfiles/archive/nvim.zip > repo.zip
 sudo yum -y install unzip
 unzip repo.zip
 rm repo.zip
