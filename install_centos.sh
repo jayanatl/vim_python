@@ -14,3 +14,8 @@ mv dotfiles* ~/.dotfiles
 cd ~/.dotfiles
 rm -rf /tmp/repo
 bash setup_centos.sh
+
+# TODO:
+# Make this script inteligent to pickup os version and run right version of setup script
+# Auto install different nvim configurations for GUI / Terminal users, eg: airline on terminal interface will break if proper fonts are not used
+

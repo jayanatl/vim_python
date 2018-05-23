@@ -19,12 +19,21 @@ ln -s /usr/bin/pip3.6 ~/bin/pip3
 sudo /usr/bin/pip3.6 install virtualenvwrapper
 
 
-bot "Setting up neovim"
+bot "Installing neovim"
 sudo curl -o /etc/yum.repos.d/dperson-neovim-epel-7.repo https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo
 sudo yum -y install neovim
 
-clear
+bot "setting up neovim"
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+#TODO:
+# Check installation of Plug without opening vim by vim +PluginInstall +qall
+# Setup venv for nvim
+# Setup minimal plugin and test end to end
+# then follow the list in onenote
+
+
+clear
 bot "Configuring git"
 grep 'user = GITHUBUSER' ./homedir/.gitconfig > /dev/null 2>&1
 if [[ $? = 0 ]]; then
@@ -57,7 +66,7 @@ for file in .*; do
   unlink ~/$file > /dev/null 2>&1
   # create the link
   ln -s ~/.dotfiles/homedir/$file ~/$file
-  echo '${file} linked'
+  echo "${file} linked"
 done
 
 popd > /dev/null 2>&1
@@ -65,20 +74,4 @@ popd > /dev/null 2>&1
 
 # Configure BASH
 mkdir -p ~/bin
-    # add fzf related stuff
-    # setup virtual env wrapper 
 grep 'source ~/.profile' ~/.bashrc || echo "source ~/.profile" >> ~/.bashrc
-
-
-
-# Configure git
-  # Wget gitconf
-  # Update gitconf?
-
-# Configure nvim
-  # create settings folders
-  # Configure python support
-  # Configure clipboard
-  # Wget nvim settings file
-
-

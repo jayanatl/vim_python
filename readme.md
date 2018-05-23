@@ -1,7 +1,7 @@
 # Auto setup development environment
 
 ```
-bash <(curl -L https://raw.githubusercontent.com/jayanatl/dotfiles/initial_prototype/install_centos.sh)
+bash <(curl -L https://raw.githubusercontent.com/jayanatl/dotfiles/nvim/install_centos.sh)
 ```
 
 
