@@ -21,7 +21,6 @@ let g:python3_host_prog = expand('~/.config/nvim/venv/python3/bin/python3')
 let g:airline_powerline_fonts = 1
 let g:airline_section_z = ' %{strftime("%-I:%M %p")}'
 let g:airline_section_warning = ''
-let g:airline#extensions#tabline#enabled = 1
 
 " use 256 colors when possible
 if (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256') || has('nvim')
