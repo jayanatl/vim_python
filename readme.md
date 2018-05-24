@@ -4,6 +4,8 @@
 bash <(curl -L https://raw.githubusercontent.com/jayanatl/dotfiles/nvim/install_centos.sh)
 ```
 
+| NOTE: If you are using Windows, install [powerline fonts](https://github.com/powerline/fonts) and configure your terminal emulator to use those fonts
+| Prefered font: noto mono for powerline
 
 ## BugFix:
 - [ ] Fix output generated while creating links to dotfiles
