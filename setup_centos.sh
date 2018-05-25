@@ -26,7 +26,7 @@ sudo yum -y update
 
 bot "Install python3 and other necessary tools"
 #sudo yum install fzf
-sudo yum -y install python-pip python36u python36u-pip git wget curl tree tmux mlocate
+sudo yum -y install python-pip python36u python36u-pip git wget curl tree tmux mlocate ctags
 mkdir ~/bin
 ln -s /usr/bin/python3.6 ~/bin/python3
 ln -s /usr/bin/pip3.6 ~/bin/pip3
