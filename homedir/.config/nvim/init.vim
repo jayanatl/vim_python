@@ -139,6 +139,24 @@ set splitbelow splitright noequalalways
 set hlsearch incsearch ignorecase smartcase " Fix searching
 "set mouse=a
 
+" Switching windows
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+tnoremap <C-h> <c-\><c-n><c-w>h
+tnoremap <C-j> <C-\><C-n><C-w>j
+tnoremap <C-k> <C-\><C-n><C-w>k
+tnoremap <C-l> <C-\><C-n><C-w>l
+
+" Vmap for maintain Visual Mode after shifting > and <
+vmap < <gv
+vmap > >gv
+
+" Move visual block up/down
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 " Clipboard settings
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
