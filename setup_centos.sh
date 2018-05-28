@@ -26,12 +26,10 @@ sudo yum -y update
 
 bot "Install python3 and other necessary tools"
 #sudo yum install fzf
-sudo yum -y install python-pip python36u python36u-pip git wget curl tree tmux mlocate ctags
-mkdir ~/bin
-ln -s /usr/bin/python3.6 ~/bin/python3
-ln -s /usr/bin/pip3.6 ~/bin/pip3
-sudo /usr/bin/pip3.6 install virtualenvwrapper
-
+sudo yum -y install python-pip python36u python36u-pip git2u wget curl tree tmux mlocate ctags
+pip3.6 install --user --upgrade pip
+pip2 install --user neovim
+pip3 install --user virtualenvwrapper neovim flake8
 
 bot "Installing neovim"
 sudo curl -o /etc/yum.repos.d/dperson-neovim-epel-7.repo https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo
@@ -64,20 +62,7 @@ popd > /dev/null 2>&1
 # Configure BASH
 mkdir -p ~/bin
 grep 'source ~/.profile' ~/.bashrc || echo "source ~/.profile" >> ~/.bashrc
-source ~/.bashrc
-
 
 bot "setting up neovim"
-
-virtualenv --python=python ~/.config/nvim/venv/python2
-source ~/.config/nvim/venv/python2/bin/activate
-pip install neovim
-deactivate
-
-virtualenv --python=python3 ~/.config/nvim/venv/python3
-source ~/.config/nvim/venv/python3/bin/activate
-pip install neovim
-deactivate
-
 nvim -E +PlugInstall +qall
 sudo reboot
