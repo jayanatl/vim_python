@@ -107,6 +107,11 @@ let g:jedi#use_tabs_not_buffers = 1
 let g:ale_sign_error = '✗'
 "let g:ale_sign_warning = '⚠'
 let g:ale_sign_warning = '!'
+let g:ale_fixers = {
+\    'python': ['yapf','isort'],
+\}
+"let g:ale_fix_on_save = 1
+let g:ale_enabled = 1
 let g:ale_enabled = 1
 
 " Tasklist
@@ -129,7 +134,8 @@ nmap <leader>e :q<CR>
 
 " Hardmode
 let g:HardMode_level = 'wannabe' " Comment this line to enable advanced mode
-nnoremap <leader>h <Esc>:call ToggleHardMode()<CR> "Toggle vim hardmode which disables simple motion keys
+"Toggle vim hardmode which disables simple motion keys
+nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
 " Other settings
 set list listchars=trail:»,tab:»-
