@@ -108,7 +108,7 @@ let g:ale_sign_error = '✗'
 "let g:ale_sign_warning = '⚠'
 let g:ale_sign_warning = '!'
 let g:ale_fixers = {
-\    'python': ['yapf','isort'],
+\    'python': ['isort','yapf'],
 \}
 "let g:ale_fix_on_save = 1
 let g:ale_enabled = 1
@@ -167,8 +167,6 @@ vnoremap K :m '<-2<CR>gv=gv
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
 endif
-
-
 
 " Neovim :Terminal
 tmap <Esc> <C-\><C-n>
