@@ -65,4 +65,4 @@ grep 'source ~/.profile' ~/.bashrc || echo "source ~/.profile" >> ~/.bashrc
 
 bot "setting up neovim"
 nvim -E +PlugInstall +qall
-sudo reboot
+logout
