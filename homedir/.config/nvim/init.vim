@@ -129,8 +129,8 @@ nmap <leader>m :tabnext<CR>
 nmap <leader>n :tabprevious<CR>
 nmap <C-d> yyp
 imap <C-d> <ESC>yypi
-nmap <leader>E :qa<CR>
-nmap <leader>e :q<CR>
+nmap <leader>E :qa!<CR>
+nmap <leader>e :q!<CR>
 
 " Hardmode
 let g:HardMode_level = 'wannabe' " Comment this line to enable advanced mode
