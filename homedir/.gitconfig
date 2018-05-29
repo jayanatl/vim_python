@@ -174,8 +174,8 @@
   conflictstyle = diff3
 
 [branch]
-    # Automatically set up pull to be --rebase
-    # autosetuprebase = always
+  # Automatically set up pull to be --rebase
+  autosetuprebase = always
 
 [credential]
     # cache creds (git help credential-cache)
@@ -185,6 +185,6 @@
   clean = expand -t 4
 
 [push]
-  default = matching
-	followTags = true
+  default = current
+  #followTags = true
 
