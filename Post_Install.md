@@ -10,4 +10,8 @@ Add it as a certificate file(s) to /etc/pki/ca-trust/source/anchors/
 ```update-ca-trust extract```
 
 #### Setup env for aws lambda
-```pip3 install awscli ipython boto3 pytest```
+```
+pip3 install awscli ipython boto3 pytest
+mkvirtualenv test_lambda
+pip install python-lambda
+```
