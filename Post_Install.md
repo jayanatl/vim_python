@@ -5,9 +5,10 @@
 ```openssl s_client -showcerts -verify 5 -connect www.gmail.com:443```
 
 ##### Add trusted CA cert to certificate store
-Add it as a certificate file(s) to /etc/pki/ca-trust/source/anchors/
-
-```update-ca-trust extract```
+```
+Add certificate file(s) to /etc/pki/ca-trust/source/anchors/ and execute following command
+$ update-ca-trust extract
+```
 
 #### Setup env for aws lambda
 ```
