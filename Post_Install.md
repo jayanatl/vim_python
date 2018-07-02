@@ -6,6 +6,7 @@
 
 ##### Add trusted CA cert to certificate store
 Add it as a certificate file(s) to /etc/pki/ca-trust/source/anchors/
+
 ```update-ca-trust extract```
 
 #### Setup env for aws lambda
