@@ -22,6 +22,11 @@ bash <(curl -L https://raw.githubusercontent.com/jayanatl/dotfiles/nvim/install_
 - [ ] Configure code completion for nvim
 - [ ] Configure skyline
 - [ ] Configure 
+- [ ] Configure virtual env for each python binaries
+- [ ] configure ale python-cfn-lint
+- [ ] fix current configuration for duplicate entries and may be remove unwanted plugins to optimize
+- [ ] disable unwanted plugins by default
+- [ ] remove output from .profile so that scp works fine
 
 ---
 # WARNING
