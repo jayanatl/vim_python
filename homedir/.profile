@@ -10,4 +10,4 @@ source ~/.local/bin/virtualenvwrapper.sh
 sudo ntpdate -u pool.ntp.org &> /dev/null &
 
 # Load enable ~/.pythonrc
-PYTHONSTARTUP=~/.pythonrc
+export PYTHONSTARTUP=~/.pythonrc
