@@ -7,5 +7,7 @@ VIRTUALENVWRAPPER_PYTHON='/bin/python3.6'
 source ~/.local/bin/virtualenvwrapper.sh
 
 # Sync time
-echo "Initiating time sync..."
 sudo ntpdate -u pool.ntp.org &> /dev/null &
+
+# Load enable ~/.pythonrc
+PYTHONSTARTUP=~/.pythonrc
