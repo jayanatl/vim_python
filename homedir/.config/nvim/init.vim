@@ -35,6 +35,8 @@ Plug 'davidhalter/jedi-vim'
 Plug 't9md/vim-choosewin'
 Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
+Plug 'arakashic/nvim-colors-solarized'
+Plug 'wesQ3/vim-windowswap'
 
 " Look at this later: https://github.com/ryanoasis/nerd-fonts
 " Good for airline / nerdtree / etc...
@@ -96,7 +98,7 @@ let g:jedi#goto_command = "<leader>d"
 let g:jedi#goto_assignments_command = "<leader>g"
 let g:jedi#goto_definitions_command = "<leader>D"
 let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
+let g:jedi#usages_command = "<leader>b"
 "let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>r"
 nmap ;D :vsplit<CR>:call jedi#goto()<CR>
