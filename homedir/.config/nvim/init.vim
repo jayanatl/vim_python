@@ -177,3 +177,5 @@ tmap <C-d> <Esc>:q<CR>
 autocmd BufWinEnter,WinEnter term://* startinsert
 autocmd BufLeave term://* stopinsert
 
+" Show CRLF
+set ffs=unix
