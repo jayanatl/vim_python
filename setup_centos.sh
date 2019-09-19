@@ -29,7 +29,7 @@ bot "Install python3 and other necessary tools"
 sudo yum -y install python-pip python36u python36u-pip git2u wget curl tree tmux mlocate ctags jq
 pip3.6 install --user --upgrade pip
 pip2 install --user neovim
-pip3 install --user virtualenvwrapper neovim flake8 isort yapf
+pip3 install --user virtualenvwrapper neovim flake8 isort black
 
 bot "Installing neovim"
 sudo curl -o /etc/yum.repos.d/dperson-neovim-epel-7.repo https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo
