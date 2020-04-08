@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./lib_sh/echos.sh
+source ./bin/echos.sh
 bot "Hi! I'm going to setup this machine. Here I go..."
 
 bot "Configuring git"
