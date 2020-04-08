@@ -72,3 +72,11 @@ The creator or contributers of this repository is not responsible if your machin
   - Vim exteded configuration with custom fonts
   - Test on RHEL
   - Test on CentOS
+
+# bin/findosversion
+# bin/read_data # to read data needed to configure the everything from console
+# bin/installnvim # takes one arg which is outoput of findosversion and runs that os specific code, if os not supported, throw a message and skip thatone and go to next one
+# files in bin will be chronologicaly ordered so that dependancy and order and maintained during execution
+# bin/../setup_my_dev_env.sh will find os_version and call everything in bin with that arg
+# maybe move findosversion as a function in a lib file which is excluded from setup execution
+# all executables in bin/should have a roll back mechanism 
