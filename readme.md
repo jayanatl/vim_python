@@ -31,3 +31,44 @@ bash <(curl -L https://raw.githubusercontent.com/jayanatl/dotfiles/nvim/install_
 ---
 # WARNING
 The creator or contributers of this repository is not responsible if your machine ends up in a state you are not happy with. Look at the code to review everything this will do to your machine before using this.
+
+# New changes
+
+## Optimize scripts to work for several oses
+- Scripts for RHEL / CentOS may not be tested but should work
+- Establish good folder structure / framework to
+  - Build new machine
+  - Rebuild new machine
+  - Cleanup already configured machine
+  - Update code and repo
+
+- Configuration for mac
+
+- List of interesting tools
+
+- Vim help md file
+
+- Todo manager
+
+- Python Notes
+
+- Bash Notes
+
+- Rust Notes
+
+- Go Notes?
+
+- Other notes (probably notes will go into another repo
+
+# TODO:
+  - Cleanup repo
+  - Organize scripts and support files
+  - Make this simple, remove fancy decorations and all?
+  - Install and cleanup files
+  - List of interesting tools / packages (Document)
+  - Installation of OS Specific tools
+  - Vim basic configuration
+  - Vim exteded configuration without custom fonts
+  - Vim exteded configuration with custom fonts
+  - Test on RHEL
+  - Test on CentOS
