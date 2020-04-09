@@ -80,3 +80,8 @@ The creator or contributers of this repository is not responsible if your machin
 # bin/../setup_my_dev_env.sh will find os_version and call everything in bin with that arg
 # maybe move findosversion as a function in a lib file which is excluded from setup execution
 # all executables in bin/should have a roll back mechanism 
+
+# Folder structure
+  Home: dotfiles
+  /bin -> Binaries
+  /os/{rhel,centos,mac,...} -> holds os specific configuration files

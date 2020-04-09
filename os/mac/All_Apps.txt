@@ -1,0 +1,16 @@
+# For reference
+Docker.app
+Enpass.app
+GIPHY CAPTURE.app
+Grammarly.app
+Mischief-Free.app
+Notes.app
+OneDrive.app
+Postman.app
+Simplenote.app
+Skitch.app
+Slack.app
+Spectacle.app
+VLC.app
+VirtualBox.app
+Wacom Tablet.localized
