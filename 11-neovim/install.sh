@@ -17,7 +17,11 @@ OP=${0/.sh}
  brew install neovim 
 
  # Clone dotfiles repo
-
+ # This must be done by setup file
+ # Folder structure
+ .dotfiles_backup/
+    org
+    <epoch>/file
  # Create a new branch
 
  # Create Backup folder
@@ -34,5 +38,8 @@ OP=${0/.sh}
 ############################
 [[ ${OP} == "uninstall" ]] && {
  brew remove neovim 
+
+ # Remove dotfile links
+ # Restore old files
 }
 

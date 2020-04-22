@@ -58,7 +58,7 @@ OS=this_os
 ############################
 # Uninstall                #
 ############################
-[[ ${OP} == "install" ]] && {
+[[ ${OP} == "uninstall" ]] && {
   sed -i "/brew/d" ~/.profile 2>/dev/null
   sed -i "/brew/d" ~/.bash_profile 2>/dev/null
   
@@ -70,7 +70,7 @@ OS=this_os
   # Uninstall any packages installed
   case ${OS} in
     Darwin | darwin)
-      echo "Mac OS detected, not removing pre-requisites"
+      echo "Mac OS detected, not removing brew"
       ;;
 
     centos | redhat)
