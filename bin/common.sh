@@ -33,3 +33,19 @@ function warn() {
 function error() {
     echo -e "$COL_RED[error]$COL_RESET "$1
 }
+
+function this_os() {
+  # return os name
+  OS=$(uname)
+  if [[ ${OS} == "Linux" ]]; then
+    OS=$(grep -w ID /etc/*-release 2>/dev/null|cut -d\" -f2)
+  fi
+  echo -e ${OS}
+}
+
+function list_install_steps() {
+  # List folders which starts with a "number-*" which holds install
+  # and uninstall methods
+  [[ $1 =~ ^(reverse|rev|r)$ ]] && option="-r" || option=""
+  find . -type d  -maxdepth 1 -regex "\.*/[0-9]\{1,2\}-.*"|cut -d/ -f2|sort $option
+}

@@ -1,13 +1,12 @@
-bash
-bash-completion@2
-curl
 git
+gnupg
 jq
 neovim
 sipcalc
-telnet
+sqlite
 tmux
 tree
+zip
+unzip
 unrar
-watch
 wget
