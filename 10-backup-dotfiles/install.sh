@@ -19,6 +19,9 @@ OS=$(this_os)
 ############################
 [[ ${OP} == "install" ]] && {
   echo "Baking up dot files that are being replaced"
+  # Cleanup brew entry in dot.profile/dot.bashrc
+  # Get that entry from current .bashrc/.profile before moving it to backup
+
   # Create org if not present
   # Create backup if files which are not simlinks to .dotfiles and is getting replaced
   #   and move those to backup folder

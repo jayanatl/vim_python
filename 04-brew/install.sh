@@ -10,6 +10,8 @@ source bin/common.sh
 OP=$(check_operation)
 
 # Permission check
+# TODO
+# Change following function to check_no_root_execution and check sudo_access
 check_perms
 
 OS=$(this_os)
@@ -49,8 +51,10 @@ OS=$(this_os)
         ;;
 
       centos | redhat | fedora)
-        test -d ~/.linuxbrew && rm -rf ~/.linuxbrew
-        test -d /home/linuxbrew/.linuxbrew && rm -rf /home/linuxbrew
+        sed -i "/brew shellenv/d" ~/.profile 2>/dev/null
+        sed -i "/brew shellenv/d" ~/.bash_profile 2>/dev/null
+        test -d ~/.linuxbrew && sudo rm -rf ~/.linuxbrew
+        test -d /home/linuxbrew/.linuxbrew && sudo rm -rf /home/linuxbrew
         ;;
       
       *)
