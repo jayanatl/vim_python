@@ -91,6 +91,6 @@ git checkout ${branch}
 
 # Create new branch for new changes
 br_name=${USER}_${hostname}
-git chheckout -b ${br_name}
+git checkout -b ${br_name}
 
 # Start execution
