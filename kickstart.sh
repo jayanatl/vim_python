@@ -31,11 +31,11 @@ case ${OS} in
     ;;
 
   centos | redhat | fedora)
-    sudo yum install git tar -y
+    sudo yum install git zip tar -y
     ;;
 
   fedora)
-    sudo dnf install git tar -y
+    sudo dnf install git zip tar -y
     ;;
   
   *)
