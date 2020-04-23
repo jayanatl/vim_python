@@ -51,10 +51,11 @@ OS=$(this_os)
         ;;
 
       centos | redhat | fedora)
+        echo "Removing linuxbrew"
         sed -i "/brew shellenv/d" ~/.profile 2>/dev/null
         sed -i "/brew shellenv/d" ~/.bash_profile 2>/dev/null
-        test -d ~/.linuxbrew && sudo rm -rf ~/.linuxbrew
-        test -d /home/linuxbrew/.linuxbrew && sudo rm -rf /home/linuxbrew
+        test -d ~/.linuxbrew && sudo rm -rvf ~/.linuxbrew
+        test -d /home/linuxbrew/.linuxbrew && sudo rm -rvf /home/linuxbrew
         ;;
       
       *)
