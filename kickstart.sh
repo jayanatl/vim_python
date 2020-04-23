@@ -8,11 +8,11 @@ echo "Argument 2: ${2}"
 
 
 # Permission check
-(( $UID !=0 )) || {echo "Do not run this as 'root'"; exit 127;}
+(( $UID !=0 )) || { echo "Do not run this as 'root'"; exit 127; }
 
 
 
-sudo -l mkdir || {echo "Sudo privillege needed to continue setup"; exit 127;}
+sudo -l mkdir || { echo "Sudo privillege needed to continue setup"; exit 127; }
 
 
 function this_os() {
