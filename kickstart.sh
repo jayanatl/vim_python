@@ -3,16 +3,13 @@
 # Script to setup development environment in my workstation                   #
 ###############################################################################
 
-echo "Argument 1: ${1}"
-echo "Argument 2: ${2}"
-
-
 # Permission check
 (( $UID !=0 )) || { echo "Do not run this as 'root'"; exit 127; }
 
 
 
 sudo -l mkdir || { echo "Sudo privillege needed to continue setup"; exit 127; }
+read -r -p "Reboot after completion: (n)? " REBOOT
 
 
 function this_os() {
@@ -48,16 +45,15 @@ esac
 
 
 # Copy repo locally and switch to right branch
-read -r -p "Repo: (jayanatl/dotfiles)? " repo
-read -r -p "Branch: (refactor_mac)? " branch
-read -r -p "Reboot after completion: (n)? " REBOOT
-
-gitrepo=${gitrepo:-"jayanatl/dotfiles"}
-branch=${branch:-"refactor_mac"}
+gitRepo=${1:-"jayanatl/dotfiles"}
+branch=${2:-"refactor_mac"}
 [[ $REBOOT =~ ^(y|Y)$ ]] && REBOOT=y || REBOOT=n
 
-# if repo =~ ^http.*.git$; then repourl=${repo} # TODO
-repoUrl="https://github.com/${gitrepo}.git"
+if [[gitRepo =~ "^http.*.git$ ]]; then
+  repoUrl=gitRepo
+else
+  repoUrl="https://github.com/${gitrepo}.git"
+fi
 
 # Remove dotfiles folder if it already exists
 
