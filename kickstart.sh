@@ -3,6 +3,9 @@
 # Script to setup development environment in my workstation                   #
 ###############################################################################
 
+# TODO:
+# Generate log in a local file
+
 # Exit incase of any error
 set -e
 
@@ -67,35 +70,38 @@ esac
 # fi
 
 
-# Setup repo url
+echo Setting up repo url
 gitRepo=${1:-"jayanatl/dotfiles"}
 branch=${2:-"refactor_mac"}
-
 if [[ ${gitRepo} =~ ^http.*.git$ ]]; then
   repoUrl=gitRepo
 else
   repoUrl="https://github.com/${gitRepo}.git"
 fi
+echo "Repo URL          : ${repoUrl}"
+echo "Repo Branch to use: ${branch}"
 
 
-# Create dotfiles_archive folder
-mkdir -p .dotfiles_backup/repo
+echo Creating dotfiles_archive folder
+DOTBKP=".dotfiles_backup"
+mkdir -p "${DOTBKP}/repo"
 
 
-# Move old copy of dotfiles to archive if present
+echo Arciving old copy of dotfiles if present
 if [ -d .dotfiles ]; then
-  zip -r .dotfiles_backup/repo/dotfiles.bak.$(date +%s) .dotfiles
+  epoch=$(date +%s)
+  echo "Creating .dotfiles repo backup: ${DOTBKP}/repo/dotfiles.${epoch}.zip"
+  zip -r "${DOTBKP}/repo/dotfiles.${epoch}.zip" .dotfiles || { error Zip file creation filed, exiting; exit 127 }
+  rm -rvf .dotfiles
 fi
 
-# Setup local repo/copy
+echo Settting up new local repo from repository
 git clone ${repoUrl}
 mv dotfiles .dotfiles
-
-# Checkout right branch
 cd .dotfiles
 git checkout ${branch}
 
-# Create new branch for new changes
+echo Creating new branch for new changes
 new_br=${USER}_${HOSTNAME}
 git checkout -b ${new_br}
 
