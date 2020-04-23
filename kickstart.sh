@@ -6,6 +6,12 @@
 # Exit incase of any error
 set -e
 
+[[ ${PWD} == ${HOME} ]] || {
+  echo "Changin directory to HOME(${HOME})"
+  echo "Execute command 'popd' to return to previous directory if needed"
+  pushd ${HOME} >/dev/null
+}
+
 # Function to grab OS name
 function this_os() {
   # return os name
@@ -73,12 +79,12 @@ fi
 
 
 # Create dotfiles_archive folder
-mkdir -p ~/.dotfiles_backup/repo
+mkdir -p .dotfiles_backup/repo
 
 
 # Move old copy of dotfiles to archive if present
-if [ -d ~/.dotfiles ]; then
-  zip -r ~/.dotfiles_backup/repo/dotfiles.bak.$(date +%s) ~/.dotfiles
+if [ -d .dotfiles ]; then
+  zip -r .dotfiles_backup/repo/dotfiles.bak.$(date +%s) .dotfiles
 fi
 
 # Setup local repo/copy
@@ -90,7 +96,13 @@ cd .dotfiles
 git checkout ${branch}
 
 # Create new branch for new changes
-br_name=${USER}_${hostname}
-git checkout -b ${br_name}
+new_br=${USER}_${HOSTNAME}
+git checkout -b ${new_br}
 
 # Start execution
+
+
+
+
+# Return to the directory where execution started
+popd
