@@ -22,7 +22,7 @@ function this_os() {
 }
 
 # Install basic tools needed to kickoff configuration
-OS=this_os
+OS=$(this_os)
 case ${OS} in
   Darwin | darwin)
     echo "Mac OS detected, seting up brew, zip and git"
