@@ -31,11 +31,11 @@ case ${OS} in
     ;;
 
   centos | redhat | fedora)
-    sudo yum install git
+    sudo yum install git tar -y
     ;;
 
   fedora)
-    sudo dnf install git
+    sudo dnf install git tar -y
     ;;
   
   *)
@@ -44,21 +44,21 @@ case ${OS} in
     ;;
 esac
 
-# Install brew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-
-# Configure brew
-if [[ ${OS} =~ ^(centos|redhat|fedora)$ ]]; then
-  # Cleanup entry if already there
-  sed -i "/brew shellenv/d" ~/.profile 2>/dev/null
-  sed -i "/brew shellenv/d" ~/.bash_profile 2>/dev/null
-  
-  # Add new entries
-  test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-  test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-  test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
-  echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
-fi
+# # Install brew
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+# 
+# # Configure brew
+# if [[ ${OS} =~ ^(centos|redhat|fedora)$ ]]; then
+#   # Cleanup entry if already there
+#   sed -i "/brew shellenv/d" ~/.profile 2>/dev/null
+#   sed -i "/brew shellenv/d" ~/.bash_profile 2>/dev/null
+#   
+#   # Add new entries
+#   test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+#   test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+#   test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
+#   echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+# fi
 
 
 # Setup repo url
