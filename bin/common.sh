@@ -49,3 +49,20 @@ function list_install_steps() {
   [[ $1 =~ ^(reverse|rev|r)$ ]] && option="-r" || option=""
   find . -type d  -maxdepth 1 -regex "\.*/[0-9]\{1,2\}-.*"|cut -d/ -f2|sort $option
 }
+
+function check_operation() {
+  # Sanity check: Check whether supported operation is invoked
+  arg0=${0}
+  DNAME=$(dirname ${arg0})
+  FNAME=$(basename ${arg0})
+  OP=${FNAME/.sh}
+  [[ ${OP} =~ ^(install|uninstall)$ ]] || { error Unsupported Operation: ${OP}; exit 127; }
+  echo -e ${OP}
+}
+
+function check_perms() {
+  # Permission check
+  (( $UID !=0 )) || { echo "Do not run this as 'root'"; exit 127; }
+  sudo -l mkdir 2>/dev/null|| { error "Sudo privillege needed to continue setup"; exit 127; }
+  return 0
+}

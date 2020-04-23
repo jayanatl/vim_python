@@ -1,18 +1,16 @@
 #!/bin/bash
 ###############################################################################
-# Script to install prereqs
+# Script to install other favorite brew packages
 ###############################################################################
 
 # load common functions
 source bin/common.sh
 
 # Sanity check
-OP=${0/.sh}
-[[ ${OP} =~ ^(install|uninstall)$ ]] || {error Unsupported Operation: ${OP}; exit 127;}
+OP=$(check_operation)
 
 # Permission check
-(( $UID !=0 )) || {echo "Do not run this as 'root'"; exit 127;}
-sudo -l mkdir || {echo "Sudo privillege needed to continue setup"; exit 127;}
+check_perms
 
 OS=this_os
 

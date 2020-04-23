@@ -7,8 +7,12 @@
 source bin/common.sh
 
 # Sanity check
-OP=${0/.sh}
-[[ ${OP} =~ ^(install|uninstall)$ ]] || {error Unsupported Operation: ${OP}; exit 127;}
+OP=$(check_operation)
+
+# Permission check
+check_perms
+
+OS=$(this_os)
 
 ############################
 # Install                  #
@@ -16,30 +20,21 @@ OP=${0/.sh}
 [[ ${OP} == "install" ]] && {
  brew install neovim 
 
- # Clone dotfiles repo
- # This must be done by setup file
- # Folder structure
- .dotfiles_backup/
-    org
-    <epoch>/file
- # Create a new branch
+ # Install venv and necessary packages on that
+ # compgen/which to find latest python by brew
+ # create venv for nvim
+ # anything else?
 
- # Create Backup folder
-
- # Create org backup if not present
-
- # Create backup with epoc
-
- # Configure softlinks to dotfiles
 }
 
 ############################
 # Uninstall                #
 ############################
 [[ ${OP} == "uninstall" ]] && {
- brew remove neovim 
-
  # Remove dotfile links
  # Restore old files
+
+ brew remove neovim 
+
 }
 

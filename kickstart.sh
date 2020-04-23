@@ -29,26 +29,22 @@ fi
 read -r -p "Reboot after completion: (n)? " REBOOT
 [[ $REBOOT =~ ^(y|Y)$ ]] && REBOOT=y || REBOOT=n
 
-# Install basic tools needed to kickoff configuration
-case ${OS} in
-  Darwin | darwin)
-    echo "Mac OS detected, seting up brew and git"
-    echo "TODO:"
-    ;;
 
-  centos | redhat)
-    sudo yum install git -y
-    ;;
+# Install brew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+# Configure brew
+if [[ ${OS} =~ ^(centos|redhat|fedora)$ ]]; then
+  # Cleanup entry if already there
+  sed -i "/brew shellenv/d" ~/.profile 2>/dev/null
+  sed -i "/brew shellenv/d" ~/.bash_profile 2>/dev/null
   
-  fedora)
-    sudo dnf install git -y
-    ;;
-  
-  *)
-    echo "Sorry, OS: ${OS}, currently not supported by this script"
-    exit 127
-    ;;
-esac
+  # Add new entries
+  test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+  test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+  test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
+  echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+fi
 
 
 # Setup repo url
@@ -61,11 +57,26 @@ else
   repoUrl="https://github.com/${gitRepo}.git"
 fi
 
-# Remove dotfiles folder if it already exists
+
+# Create dotfiles_archive folder
+mkdir -p ~/.dotfiles_backup/repo
 
 
-# Clone repo
-cd ~
+# Move old copy of dotfiles to archive if present
+if [ -d ~/.dotfiles ]; then
+  zip -r ~/.dotfiles_backup/repo/dotfiles.bak.$(date +%s) ~/.dotfiles
+fi
+
+# Setup local repo/copy
 git clone ${repoUrl}
+mv dotfiles .dotfiles
+
+# Checkout right branch
+cd .dotfiles
+git checkout ${branch}
+
+# Create new branch for new changes
+br_name=${USER}_${hostname}
+git chheckout -b ${br_name}
 
 # Start execution

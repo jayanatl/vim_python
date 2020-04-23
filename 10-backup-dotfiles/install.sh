@@ -1,26 +1,34 @@
 #!/bin/bash
 ###############################################################################
-# Script to install neovim
+# Script to create dotfiles backup
 ###############################################################################
 
 # load common functions
 source bin/common.sh
 
 # Sanity check
-OP=${0/.sh}
-[[ ${OP} =~ ^(install|uninstall)$ ]] || {error Unsupported Operation: ${OP}; exit 127;}
+OP=$(check_operation)
+
+# Permission check
+check_perms
+
+OS=$(this_os)
 
 ############################
 # Install                  #
 ############################
 [[ ${OP} == "install" ]] && {
- mkdir ~/.dot_files_backup
+  echo "Baking up dot files that are being replaced"
+  # Create org if not present
+  # Create backup if files which are not simlinks to .dotfiles and is getting replaced
+  #   and move those to backup folder
 }
 
 ############################
 # Uninstall                #
 ############################
 [[ ${OP} == "uninstall" ]] && {
- brew remove neovim 
+  echo "Restoring old dotfiles from backup"
+  # Resetore files in reverse order
 }
 
