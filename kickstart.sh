@@ -4,7 +4,7 @@
 ###############################################################################
 
 # TODO:
-# Generate log in a local file
+# Generate local log file
 
 # Exit incase of any error
 set -e
