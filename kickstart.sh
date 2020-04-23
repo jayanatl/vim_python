@@ -9,7 +9,7 @@
 # Exit incase of any error
 set -e
 
-[[ ${PWD} != ${HOME} ]] || {
+[[ ${PWD} != ${HOME} ]] && {
   POPD=1
   echo "Changin directory to HOME(${HOME})"
   echo "Execute command 'popd' to return to previous directory if needed"
