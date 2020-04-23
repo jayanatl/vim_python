@@ -49,14 +49,12 @@ gitRepo=${1:-"jayanatl/dotfiles"}
 branch=${2:-"refactor_mac"}
 [[ $REBOOT =~ ^(y|Y)$ ]] && REBOOT=y || REBOOT=n
 
-if [[gitRepo =~ "^http.*.git$ ]]; then
+if [[gitRepo =~ ^http.*.git$ ]]; then
   repoUrl=gitRepo
 else
-  repoUrl="https://github.com/${gitrepo}.git"
+  repoUrl="https://github.com/${gitRepo}.git"
 fi
 
 # Remove dotfiles folder if it already exists
-
 # Unzip and move to right place
-
 # Start execution
