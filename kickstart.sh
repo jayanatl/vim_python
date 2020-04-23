@@ -9,7 +9,8 @@
 # Exit incase of any error
 set -e
 
-[[ ${PWD} == ${HOME} ]] || {
+[[ ${PWD} != ${HOME} ]] || {
+  POPD=1
   echo "Changin directory to HOME(${HOME})"
   echo "Execute command 'popd' to return to previous directory if needed"
   pushd ${HOME} >/dev/null
@@ -28,7 +29,7 @@ OS=$(this_os)
 
 # Permission checks
 (( $UID !=0 )) || { echo "Do not run this as 'root'"; exit 127; }
-sudo -l mkdir 2>/dev/null|| { error "Sudo privillege needed to continue setup"; exit 127; }
+sudo -l mkdir >/dev/null|| { error "Sudo privillege needed to continue setup"; exit 127; }
 
 read -r -p "Do you want to reboot after completion: (n)? " REBOOT
 [[ $REBOOT =~ ^(y|Y)$ ]] && REBOOT=y || REBOOT=n
@@ -111,4 +112,4 @@ git checkout -b ${new_br}
 
 
 # Return to the directory where execution started
-popd
+((${POPD:-0})) && popd
