@@ -17,18 +17,32 @@ function this_os() {
 }
 OS=$(this_os)
 
-# Permission check
+# Permission checks
 (( $UID !=0 )) || { echo "Do not run this as 'root'"; exit 127; }
+sudo -l mkdir 2>/dev/null|| { error "Sudo privillege needed to continue setup"; exit 127; }
 
-# Check SUDO Privilleges for Linux systems
-
-if [[ ${OS} =~ ^(darwin|Darwin)$ ]]; then
-  sudo -l mkdir || { echo "Sudo privillege needed to continue setup"; exit 127; }
-fi
-
-read -r -p "Reboot after completion: (n)? " REBOOT
+read -r -p "Do you want to reboot after completion: (n)? " REBOOT
 [[ $REBOOT =~ ^(y|Y)$ ]] && REBOOT=y || REBOOT=n
 
+case ${OS} in
+  Darwin | darwin)
+    echo "Mac OS detected, Enterprise OS Team manages packages"
+    xcode-select --install
+    ;;
+
+  centos | redhat | fedora)
+    sudo yum install git
+    ;;
+
+  fedora)
+    sudo dnf install git
+    ;;
+  
+  *)
+    echo "Sorry, OS: ${OS}, currently not supported by this script"
+    exit 127
+    ;;
+esac
 
 # Install brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
