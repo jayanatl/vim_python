@@ -3,15 +3,10 @@
 # Script to setup development environment in my workstation                   #
 ###############################################################################
 
-# Permission check
-(( $UID !=0 )) || { echo "Do not run this as 'root'"; exit 127; }
+# Exit incase of any error
+set -e
 
-
-
-sudo -l mkdir || { echo "Sudo privillege needed to continue setup"; exit 127; }
-read -r -p "Reboot after completion: (n)? " REBOOT
-
-
+# Function to grab OS name
 function this_os() {
   # return os name
   OS=$(uname)
@@ -20,21 +15,33 @@ function this_os() {
   fi
   echo -e ${OS}
 }
+OS=$(this_os)
+
+# Permission check
+(( $UID !=0 )) || { echo "Do not run this as 'root'"; exit 127; }
+
+# Check SUDO Privilleges for Linux systems
+
+if [[ ${OS} =~ ^(darwin|Darwin)$ ]]; then
+  sudo -l mkdir || { echo "Sudo privillege needed to continue setup"; exit 127; }
+fi
+
+read -r -p "Reboot after completion: (n)? " REBOOT
+[[ $REBOOT =~ ^(y|Y)$ ]] && REBOOT=y || REBOOT=n
 
 # Install basic tools needed to kickoff configuration
-OS=$(this_os)
 case ${OS} in
   Darwin | darwin)
-    echo "Mac OS detected, seting up brew, zip and git"
+    echo "Mac OS detected, seting up brew and git"
     echo "TODO:"
     ;;
 
   centos | redhat)
-    sudo yum install unzip -y
+    sudo yum install git -y
     ;;
   
   fedora)
-    sudo dnf install unzip -y
+    sudo dnf install git -y
     ;;
   
   *)
@@ -44,17 +51,21 @@ case ${OS} in
 esac
 
 
-# Copy repo locally and switch to right branch
+# Setup repo url
 gitRepo=${1:-"jayanatl/dotfiles"}
 branch=${2:-"refactor_mac"}
-[[ $REBOOT =~ ^(y|Y)$ ]] && REBOOT=y || REBOOT=n
 
-if [[gitRepo =~ ^http.*.git$ ]]; then
+if [[ ${gitRepo} =~ ^http.*.git$ ]]; then
   repoUrl=gitRepo
 else
   repoUrl="https://github.com/${gitRepo}.git"
 fi
 
 # Remove dotfiles folder if it already exists
-# Unzip and move to right place
+
+
+# Clone repo
+cd ~
+git clone ${repoUrl}
+
 # Start execution

@@ -28,12 +28,12 @@ OS=this_os
 
       centos | redhat)
         sudo yum update -y
-        sudo yum install git tar python36 gcc -y
+        sudo yum install tar python36 gcc -y
         ;;
       
       fedora)
         sudo dnf update -y
-        sudo dnf install git tar python37 gcc -y
+        sudo dnf install tar python37 gcc -y
         ;;
       
       *)
