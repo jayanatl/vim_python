@@ -26,7 +26,11 @@ OS=$(this_os)
         ;;
 
       centos | redhat | fedora)
-        brew install python@3.8
+        yum install python36 -y
+        ;;
+
+      fedora)
+        dnf install python37 -y
         ;;
       
       *)
@@ -50,7 +54,10 @@ OS=$(this_os)
         ;;
 
       centos | redhat | fedora)
-        brew remove python@3.8
+        yum remove python36 -y
+        ;;
+      fedora)
+        dnf remove python37 -y
         ;;
       
       *)
