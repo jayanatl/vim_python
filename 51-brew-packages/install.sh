@@ -12,7 +12,8 @@ OP=$(check_operation)
 # Permission check
 check_perms
 
-OS=this_os
+OS=$(this_os)
+scriptDir=$(dirname $0)
 
 ############################
 # Install                  #
@@ -22,13 +23,13 @@ OS=this_os
     case ${OS} in
       Darwin | darwin)
         echo "Mac OS detected"
-        cat brew_list | xargs brew install
-        cat brew_cask_list | xargs brew cask install
+        cat ${scriptDir}/brew_list | xargs brew install
+        cat ${scriptDir}/brew_cask_list | xargs brew cask install
         ;;
 
       centos | redhat | fedora)
         echo "Linux detected"
-        cat brew_list | xargs brew install
+        cat ${scriptDir}/brew_list | xargs brew install
         ;;
       
       *)
@@ -48,13 +49,13 @@ OS=this_os
     case ${OS} in
       Darwin | darwin)
         echo "Mac OS detected"
-        cat brew_list | xargs brew remove
-        cat brew_cask_list | xargs brew cask remove
+        cat ${scriptDir}/brew_list | xargs brew remove
+        cat ${scriptDir}/brew_cask_list | xargs brew cask remove
         ;;
 
       centos | redhat | fedora)
         echo "Linux detected"
-        cat brew_list | xargs brew remove
+        cat ${scriptDir}/brew_list | xargs brew remove
         ;;
       
       *)
