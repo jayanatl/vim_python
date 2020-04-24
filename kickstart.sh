@@ -41,11 +41,11 @@ case ${OS} in
     ;;
 
   centos | redhat | fedora)
-    sudo yum install git zip tar -y
+    sudo yum install git zip tar gcc -y
     ;;
 
   fedora)
-    sudo dnf install git zip tar -y
+    sudo dnf install git zip tar gcc -y
     ;;
   
   *)
