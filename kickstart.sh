@@ -47,15 +47,16 @@ esac
 
 
 echo Setting up repo url
-gitRepo=${1:-"jayanatl/dotfiles"}
-branch=${2:-"refactor_mac"}
+branch=${1:-"refactor_mac"}
+gitRepo=${2:-"jayanatl/dotfiles"}
+
 if [[ ${gitRepo} =~ ^http.*.git$ ]]; then
-  repoUrl=gitRepo
+  repoUrl=${gitRepo}
 else
   repoUrl="https://github.com/${gitRepo}.git"
 fi
-echo "Repo URL          : ${repoUrl}"
-echo "Repo Branch to use: ${branch}"
+echo "Repo URL   : ${repoUrl}"
+echo "Repo Branch: ${branch}"
 
 
 echo Creating dotfiles_archive folder
