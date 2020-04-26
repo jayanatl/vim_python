@@ -84,9 +84,10 @@ git checkout ${branch} || { error "Unable to switch to branch": ${branch}; exit 
 currentBranch=$(git rev-parse --abbrev-ref HEAD)
 new_br=${USER}_${HOSTNAME}
 if [[ ${currentBranch} != ${new_br} ]]; then
-  echo Creating a branch from ${currentBranch}, for new changes
+  echo "${currentBranch} did not match ${new_br}"
   git checkout -b ${new_br}
 fi
+
 
 # Start execution
 for step in $(list_install_steps); do
