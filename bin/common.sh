@@ -65,7 +65,7 @@ function is_no_root(){
 }
 
 function is_sudo(){
-  sudo -l mkdir &>/dev/null|| { error "Sudo privillege needed to continue setup"; exit 127; }
+  sudo -l mkdir &>/dev/null || { error "Sudo privillege needed to continue setup"; exit 127; }
 }
 
 function user_checks(){
