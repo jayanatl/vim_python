@@ -10,7 +10,8 @@ source bin/common.sh
 OP=$(check_operation)
 
 # Permission check
-check_perms
+is_no_root
+is_sudo
 
 OS=$(this_os)
 

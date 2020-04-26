@@ -47,7 +47,7 @@ function list_install_steps() {
   # List folders which starts with a "number-*" which holds install
   # and uninstall methods
   [[ $1 =~ ^(reverse|rev|r)$ ]] && option="-r" || option=""
-  find . -type d  -maxdepth 1 -regex "\.*/[0-9]\{1,2\}-.*"|cut -d/ -f2|sort $option
+  find . -maxdepth 1 -type d -regextype posix-awk -regex "./[0-9]{2}-.*"|cut -d/ -f2|sort $option
 }
 
 function check_operation() {
@@ -60,9 +60,10 @@ function check_operation() {
   echo -e ${OP}
 }
 
-function check_perms() {
-  # Permission check
+function is_no_root(){
   (( $UID !=0 )) || { echo "Do not run this as 'root'"; exit 127; }
+}
+
+function is_sudo(){
   sudo -l mkdir 2>/dev/null|| { error "Sudo privillege needed to continue setup"; exit 127; }
-  return 0
 }

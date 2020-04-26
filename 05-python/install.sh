@@ -10,7 +10,8 @@ source bin/common.sh
 OP=$(check_operation)
 
 # Permission check
-check_perms
+is_no_root
+is_sudo
 
 OS=$(this_os)
 
@@ -25,12 +26,12 @@ OS=$(this_os)
         # brew install python@3.8
         ;;
 
-      centos | redhat | fedora)
-        yum install python36 -y
+      centos | redhat )
+        sudo yum install python36 -y
         ;;
 
       fedora)
-        dnf install python37 -y
+        sudo dnf install python37 -y
         ;;
       
       *)

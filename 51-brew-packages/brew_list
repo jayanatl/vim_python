@@ -1,12 +1,9 @@
-git
-gnupg
-jq
-neovim
-sipcalc
-sqlite
-tmux
+# gnupg
+# jq
+# sipcalc
+# tmux
 tree
-zip
-unzip
-unrar
-wget
+# unrar
+# neofetch
+# direnv
+# implement post install hook that would be needed for each tool

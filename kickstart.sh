@@ -27,8 +27,9 @@ function this_os() {
 }
 OS=$(this_os)
 
-# Permission checks
+# Root no execute check
 (( $UID !=0 )) || { echo "Do not run this as 'root'"; exit 127; }
+# Sudo access check
 sudo -l mkdir >/dev/null|| { error "Sudo privillege needed to continue setup"; exit 127; }
 
 read -r -p "Do you want to reboot after completion: (n)? " REBOOT
@@ -53,22 +54,6 @@ case ${OS} in
     exit 127
     ;;
 esac
-
-# # Install brew
-# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-# 
-# # Configure brew
-# if [[ ${OS} =~ ^(centos|redhat|fedora)$ ]]; then
-#   # Cleanup entry if already there
-#   sed -i "/brew shellenv/d" ~/.profile 2>/dev/null
-#   sed -i "/brew shellenv/d" ~/.bash_profile 2>/dev/null
-#   
-#   # Add new entries
-#   test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-#   test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-#   test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
-#   echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
-# fi
 
 
 echo Setting up repo url
@@ -107,9 +92,11 @@ new_br=${USER}_${HOSTNAME}
 git checkout -b ${new_br}
 
 # Start execution
+while step in $(list_install_steps); do
+    echo ${step}/install.sh
+done
 
-
-
+# Place for post install config?
 
 # Return to the directory where execution started
 ((${POPD:-0})) && popd
