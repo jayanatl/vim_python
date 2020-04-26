@@ -9,12 +9,6 @@
 # Exit incase of any error
 set -e
 
-#[[ ${PWD} != ${HOME} ]] && {
-#  echo "Going HOME(${HOME})..."
-#  echo "Run 'popd' if something goes wrong"
-#  pushd ${HOME} >/dev/null
-#}
-
 cd ${HOME}
 
 # Grab library and load it
@@ -95,6 +89,3 @@ for step in $(list_install_steps); do
 done
 
 # Place for post install config?
-
-# Return to the directory where execution started
-((${POPD:-0})) && popd
