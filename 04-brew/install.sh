@@ -47,14 +47,15 @@ elif [[ ${OP} == "uninstall" ]]; then
     case ${OS} in
       Darwin | darwin)
         echo "Mac OS detected, brew will not be removed"
-        # brew remove python@3.8
         ;;
 
       centos | redhat | fedora)
         echo "Removing linuxbrew"
-        sed -i "/brew shellenv/d" ~/.profile ~/.bash_profile ~/.bashrc 2>/dev/null
-        test -d ~/.linuxbrew && sudo rm -rvf ~/.linuxbrew
-        test -d /home/linuxbrew/.linuxbrew && sudo rm -rvf /home/linuxbrew
+        sed -i "/brew shellenv/d" ~/.profile ~/.bash_profile ~/.bashrc 2>/dev/null || true
+        
+	echo "Brew will not be removed"
+	# test -d ~/.linuxbrew && sudo rm -rvf ~/.linuxbrew
+        # test -d /home/linuxbrew/.linuxbrew && sudo rm -rvf /home/linuxbrew
         ;;
       
       *)
