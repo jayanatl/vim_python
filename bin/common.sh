@@ -19,7 +19,7 @@ function bot() {
 }
 
 function running() {
-    echo -en "$COL_YELLOW ⇒ $COL_RESET"$1": "
+    echo -en "$COL_YELLOW Executing $COL_RESET" $1"
 }
 
 function action() {
@@ -65,10 +65,15 @@ function is_no_root(){
 }
 
 function is_sudo(){
-  sudo -l mkdir 2>/dev/null|| { error "Sudo privillege needed to continue setup"; exit 127; }
+  sudo -l mkdir &>/dev/null|| { error "Sudo privillege needed to continue setup"; exit 127; }
 }
 
 function user_checks(){
   is_no_root
   is_sudo
+}
+
+function is_installed(){
+  # Function checks whether executable is available in system path
+  compgen -c ${1}| sort -u |grep -w ${1} &>/dev/null && return 0 || return 1
 }
