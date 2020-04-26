@@ -6,8 +6,8 @@ bash <(curl -L https://raw.githubusercontent.com/jayanatl/dotfiles/jayan_centos7
 
 # Pick a custom branch or repo
 ```
-branch="jayan_centos7" # Branch to switch to after cloning
-repo="https://github.com/jayanatl/dotfiles.git" # Use https, repo to clone dot files from
+branch="jayan_centos7" # Use this branch for installation
+repo="https://github.com/jayanatl/dotfiles.git" # Use https, (optional) repo to clone dot files from
 bash <(curl -L https://raw.githubusercontent.com/jayanatl/dotfiles/${branch}/kickstart.sh) ${branch} ${repo}
 ```
 
