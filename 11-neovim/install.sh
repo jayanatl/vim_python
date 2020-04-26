@@ -7,6 +7,7 @@ set -e
 
 # load common functions
 source bin/common.sh
+source ~/.profile
 
 # Sanity check
 OP=$(check_operation)

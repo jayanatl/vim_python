@@ -31,7 +31,7 @@ if [[ ${OP} == "install" ]]; then
 		# Configure brew
 		if [[ $(uname) == "Linux" ]]; then
 			# Cleanup entry if already there
-			sed -i "/brew shellenv/d" ~/.profile ~/.bash_profile ~/.bashrc 2>/dev/null
+			sed -i "/brew shellenv/d" ~/.profile ~/.bash_profile ~/.bashrc 2>/dev/null || true
 
 			# Add new entries to above files
 			test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)

@@ -90,3 +90,7 @@ for step in $(list_install_steps); do
 done
 
 # Place for post install config?
+
+#Pre Exit
+echo "Logout and login to load new settings"
+	# Note: Not sourcing ~/.profile to easily detect any bug
