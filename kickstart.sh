@@ -64,7 +64,7 @@ echo Arciving old copy of dotfiles if present
 if [ -d .dotfiles ]; then
   epoch=$(date +%s)
   echo "Creating .dotfiles repo backup: ${DOTBKP}/repo/dotfiles.${epoch}.zip"
-  zip -r "${DOTBKP}/repo/dotfiles.${epoch}.zip" .dotfiles || { error Zip file creation filed, exiting; exit 127; }
+  zip -r "${DOTBKP}/repo/dotfiles.${epoch}.zip" .dotfiles -x "*nvim/autoload*" "*nvim/plugged*" || { error Zip file creation filed, exiting; exit 127; }
   rm -rvf .dotfiles
 fi
 

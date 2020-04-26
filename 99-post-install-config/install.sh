@@ -22,16 +22,20 @@ if [[ ${OP} == "install" ]]; then
 ############################
 # Install                  #
 ############################
-	# Stuff that need to be done to install a specific tool goes here
-	# Along with its basic configuration
-	# User specific customization can be done as part of post install script
+	# Configure git global
+	bot "Configuring git..."
+	read -r -p "Your github userid: " githubuser
+	read -r -p "Your Full name: " fullname
+	read -r -p "Your Email: " email 
+	
+	sed -i "s/name = .*/name = ${fullname}/" "${HOME}/.gitconfig"
+	sed -i "s/email = .*/email = ${email}/" "${HOME}/.gitconfig"
+	sed -i "s/user = .*/name = ${githubuser}/" "${HOME}/.gitconfig"
 
 elif [[ ${OP} == "uninstall" ]]; then
 ############################
 # Uninstall                #
 ############################
-	# Remove basic configuration
-	# Stuff that need to be done to uninstall same tool goes here
-	# User specific customization can be done as part of post install script
+	echo "Nothing to do here"
 
 fi

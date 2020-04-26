@@ -29,6 +29,20 @@ if [[ ${OP} == "install" ]]; then
  # create venv for nvim
  # anything else?
 
+ # Setup virtual env for neovim
+ PYTHON=$(compgen -c python|sort -u|tail -1)
+ nvim_venv="${HOME}/.venv/nvim"
+ ${PYTHON} -m venv ${nvim_venv}
+ PYTHON="${nvim_venv}/bin/python"
+ PIP="${nvim_venv}/bin/pip"
+ ${PIP} install --upgrade pip
+ ${PIP} install neovim flake8 isort black
+
+ # Put python info into init.vim
+ sed -i "/let g:python3/s|=.*|= expand('${PYTHON}')|" ~/.config/nvim/init.vim
+ # Install plugs
+ nvim -E +PlugInstall +qall
+
 
 elif [[ ${OP} == "uninstall" ]]; then
 ############################
