@@ -1,8 +1,18 @@
 # Auto setup development environment
 
 ```
-bash <(curl -L https://raw.githubusercontent.com/jayanatl/dotfiles/nvim/install_centos.sh)
+bash <(curl -L https://raw.githubusercontent.com/jayanatl/dotfiles/jayan_centos7/kickstart.sh)
 ```
+
+# Pick a custom branch or repo
+```
+branch="jayan_centos7" # Branch to switch to after cloning
+repo="https://github.com/jayanatl/dotfiles.git" # Use https, repo to clone dot files from
+bash <(curl -L https://raw.githubusercontent.com/jayanatl/dotfiles/${branch}/kickstart.sh) ${branch} ${repo}
+```
+
+# NOTE
+## EVERYTHING BELOW IS OUTDATED, DO NOT USE
 
 >NOTE: If you are using Windows, install [powerline fonts](https://github.com/powerline/fonts) and configure your terminal emulator to use those fonts.
 >Prefered font: noto mono for powerline
