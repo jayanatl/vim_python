@@ -59,10 +59,10 @@ elif [[ ${OP} == "uninstall" ]]; then
         ;;
 
       centos | redhat | fedora)
-        yum remove python36 -y
+        sudo yum remove python36 -y
         ;;
       fedora)
-        dnf remove python37 -y
+        sudo dnf remove python37 -y
         ;;
       
       *)

@@ -9,14 +9,14 @@
 # Exit incase of any error
 set -e
 
-cd ${HOME}
+cd ${HOME}/.dotfiles
+source bin/common.sh
 
-OS=$(this_os)
 user_checks
 
 # Start execution
 for step in $(list_install_steps r); do
     action "Uninstalling ${step}"
-	${step}/uninstall.sh
+	${step}/uninstall.sh || true
 done
 
