@@ -28,7 +28,6 @@ if [[ ${OP} == "install" ]]; then
  # create venv for nvim
  # anything else?
 
-}
 
 elif [[ ${OP} == "uninstall" ]]; then
 ############################
