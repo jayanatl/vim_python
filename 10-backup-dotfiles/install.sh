@@ -24,9 +24,9 @@ if [[ ${OP} == "install" ]]; then
 # Install                  #
 ############################
 	echo "Baking up dot files that are being replaced"
-	for dotfile in $(ls files/home/dot.*); do
-		
-	done
+	#for dotfile in $(ls files/home/dot.*); do
+#		
+#	done
 	# Cleanup brew entry in dot.profile/dot.bashrc
 	# Get that entry from current .bashrc/.profile before moving it to backup
 

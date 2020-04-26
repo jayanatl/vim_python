@@ -50,7 +50,7 @@ elif [[ ${OP} == "uninstall" ]]; then
         ;;
 
       centos | redhat | fedora)
-        echo "Removing linuxbrew"
+        echo "Removing linuxbrew configuration"
         sed -i "/brew shellenv/d" ~/.profile ~/.bash_profile ~/.bashrc 2>/dev/null || true
         
 	echo "Brew will not be removed"
