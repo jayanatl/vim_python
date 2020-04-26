@@ -10,30 +10,20 @@
 set -e
 
 [[ ${PWD} != ${HOME} ]] && {
-  POPD=1
-  echo "Changin directory to HOME(${HOME})"
-  echo "Execute command 'popd' to return to previous directory if needed"
+  echo "Going HOME(${HOME})..."
+  echo "Run 'popd' if something goes wrong"
   pushd ${HOME} >/dev/null
 }
 
-# Function to grab OS name
-function this_os() {
-  # return os name
-  OS=$(uname)
-  if [[ ${OS} == "Linux" ]]; then
-    OS=$(grep -w ID /etc/*-release 2>/dev/null|cut -d\" -f2)
-  fi
-  echo -e ${OS}
-}
+# Grab library and load it
+curl -L https://raw.githubusercontent.com/jayanatl/dotfiles/jayan_centos7/bin/common.sh > /tmp/common.sh
+source /tmp/common.sh || { echo Unable to load common.sh; exit 127; }
+
 OS=$(this_os)
+user_checks
 
-# Root no execute check
-(( $UID !=0 )) || { echo "Do not run this as 'root'"; exit 127; }
-# Sudo access check
-sudo -l mkdir >/dev/null|| { error "Sudo privillege needed to continue setup"; exit 127; }
-
-read -r -p "Do you want to reboot after completion: (n)? " REBOOT
-[[ $REBOOT =~ ^(y|Y)$ ]] && REBOOT=y || REBOOT=n
+#read -r -p "Do you want to reboot after completion: (n)? " REBOOT
+#[[ $REBOOT =~ ^(y|Y)$ ]] && REBOOT=y || REBOOT=n
 
 case ${OS} in
   Darwin | darwin)
@@ -85,6 +75,7 @@ echo Settting up new local repo from repository
 git clone ${repoUrl}
 mv dotfiles .dotfiles
 cd .dotfiles
+sed -i.bak '/url/s|https://\(.*.com\)/|git@\1:|' .git/config
 git checkout ${branch}
 
 echo Creating new branch for new changes
