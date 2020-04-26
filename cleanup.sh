@@ -1,6 +1,6 @@
 #!/bin/bash
 ###############################################################################
-# Script to setup development environment in my workstation                   #
+# Script to cleanup development environment in my workstation                 #
 ###############################################################################
 
 # TODO:
@@ -19,4 +19,3 @@ for step in $(list_install_steps r); do
     action "Uninstalling ${step}"
 	${step}/uninstall.sh || true
 done
-
