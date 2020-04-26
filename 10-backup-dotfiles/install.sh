@@ -3,6 +3,9 @@
 # Script to create dotfiles backup
 ###############################################################################
 
+# Exit incase of any error
+set -e
+
 # load common functions
 source bin/common.sh
 

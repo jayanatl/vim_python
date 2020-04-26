@@ -3,6 +3,9 @@
 # Script to install Homebrew
 ###############################################################################
 
+# Exit incase of any error
+set -e
+
 # load common functions
 source bin/common.sh
 
@@ -15,7 +18,7 @@ is_sudo
 
 OS=$(this_os)
 
-[[ ${OP} == "install" ]] && {
+if [[ ${OP} == "install" ]]; then
 ############################
 # Install                  #
 ############################
@@ -36,14 +39,10 @@ OS=$(this_os)
 			echo "eval \$($(brew --prefix)/bin/brew shellenv)" | tee -a ~/.bashrc >> ~/.profile
 		fi
 	fi
-}
-
-
-[[ ${OP} == "uninstall" ]] && {
+elif [[ ${OP} == "uninstall" ]]; then
 ############################
 # Uninstall                #
 ############################
-  
   # Uninstall any packages installed
     case ${OS} in
       Darwin | darwin)
@@ -63,4 +62,4 @@ OS=$(this_os)
         exit 127
         ;;
     esac
-}
+fi

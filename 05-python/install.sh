@@ -3,6 +3,9 @@
 # Script to install Python
 ###############################################################################
 
+# Exit incase of any error
+set -e
+
 # load common functions
 source bin/common.sh
 
@@ -15,10 +18,10 @@ is_sudo
 
 OS=$(this_os)
 
+if [[ ${OP} == "install" ]]; then 
 ############################
 # Install                  #
 ##############G##############
-[[ ${OP} == "install" ]] && {
 
     case ${OS} in
       Darwin | darwin)
@@ -39,13 +42,13 @@ OS=$(this_os)
         exit 127
         ;;
     esac
-}
 
 
+
+elif [[ ${OP} == "uninstall" ]]; then
 ############################
 # Uninstall                #
 ############################
-[[ ${OP} == "uninstall" ]] && {
   
   # Uninstall any packages installed
     case ${OS} in
@@ -66,4 +69,4 @@ OS=$(this_os)
         exit 127
         ;;
     esac
-}
+fi

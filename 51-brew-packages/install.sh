@@ -3,6 +3,9 @@
 # Script to install other favorite brew packages
 ###############################################################################
 
+# Exit incase of any error
+set -e
+
 # load common functions
 source bin/common.sh
 

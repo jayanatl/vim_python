@@ -2,6 +2,8 @@
 ###############################################################################
 # Script to install and configure neovim
 ###############################################################################
+# Exit incase of any error
+set -e
 
 # load common functions
 source bin/common.sh
@@ -15,10 +17,10 @@ is_sudo
 
 OS=$(this_os)
 
+if [[ ${OP} == "install" ]]; then
 ############################
 # Install                  #
 ############################
-[[ ${OP} == "install" ]] && {
  brew install neovim 
 
  # Install venv and necessary packages on that
@@ -28,14 +30,13 @@ OS=$(this_os)
 
 }
 
+elif [[ ${OP} == "uninstall" ]]; then
 ############################
 # Uninstall                #
 ############################
-[[ ${OP} == "uninstall" ]] && {
  # Remove dotfile links
  # Restore old files
 
  brew remove neovim 
 
-}
-
+fi
