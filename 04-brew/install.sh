@@ -33,7 +33,7 @@ OS=$(this_os)
 			# Add new entries to above files
 			test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
 			test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-			echo "eval \$($(brew --prefix)/bin/brew shellenv)" | tee -a ~/.bashrc >> ~/.bash_profile
+			echo "eval \$($(brew --prefix)/bin/brew shellenv)" | tee -a ~/.bashrc >> ~/.profile
 		fi
 	fi
 }
