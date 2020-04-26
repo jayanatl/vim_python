@@ -34,8 +34,8 @@ if [[ ${OP} == "install" ]]; then
 			sed -i "/brew shellenv/d" ~/.profile ~/.bash_profile ~/.bashrc 2>/dev/null || true
 
 			# Add new entries to above files
-			test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-			test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+			test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv) || true
+			test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv) || true
 			echo "eval \$($(brew --prefix)/bin/brew shellenv)" | tee -a ~/.bashrc >> ~/.profile
 		fi
 	fi
