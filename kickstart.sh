@@ -12,7 +12,8 @@ set -e
 cd ${HOME}
 
 # Grab library and load it
-curl -L https://raw.githubusercontent.com/jayanatl/dotfiles/jayan_centos7/bin/common.sh > /tmp/common.sh
+branch="devel"
+curl -L "https://raw.githubusercontent.com/jayanatl/dotfiles/${branch}/bin/common.sh" > /tmp/common.sh
 source /tmp/common.sh || { echo "Error: Unable to load common.sh"; exit 127; }
 
 OS=$(this_os)

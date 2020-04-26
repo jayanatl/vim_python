@@ -1,7 +1,7 @@
 # Auto setup development environment
 
 ```
-bash <(curl -L https://raw.githubusercontent.com/jayanatl/dotfiles/jayan_centos7/kickstart.sh)
+bash <(curl -L https://raw.githubusercontent.com/jayanatl/dotfiles/devel/kickstart.sh)
 ```
 
 # Pick a custom branch or repo
@@ -11,8 +11,10 @@ repo="https://github.com/jayanatl/dotfiles.git" # Use https, (optional) repo to 
 bash <(curl -L https://raw.githubusercontent.com/jayanatl/dotfiles/${branch}/kickstart.sh) ${branch} ${repo}
 ```
 
-# NOTE
+# WARNING
+The creator or contributers of this repository is not responsible if your machine ends up in a state you are not happy with. Look at the code to review everything this will do to your machine before using this.
 
+# NOTE
 ## EVERYTHING BELOW IS OUTDATED, DO NOT USE
 
 
@@ -41,8 +43,6 @@ bash <(curl -L https://raw.githubusercontent.com/jayanatl/dotfiles/${branch}/kic
 - [ ] remove output from .profile so that scp works fine
 
 ---
-# WARNING
-The creator or contributers of this repository is not responsible if your machine ends up in a state you are not happy with. Look at the code to review everything this will do to your machine before using this.
 
 # New changes
 
