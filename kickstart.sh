@@ -79,7 +79,7 @@ git clone ${repoUrl}
 mv dotfiles .dotfiles
 cd .dotfiles
 sed -i.bak '/url/s|https://\(.*.com\)/|git@\1:|' .git/config
-git checkout ${branch} || { error "Unable to switch to branch": ${branch}; exit 127; }
+git checkout ${branch} || { error "Unable to switch to branch: ${branch}"; exit 127; }
 
 currentBranch=$(git rev-parse --abbrev-ref HEAD)
 new_br=${USER}_${HOSTNAME}
