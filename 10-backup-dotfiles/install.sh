@@ -30,15 +30,15 @@ if [[ ${OP} == "install" ]]; then
 		fname=$(basename ${dotfile})
 		slink_name=${fname/dot}
 		 
-		if [ -e ~/${slink_name} ]; then
-			if ! [ -h ~/${slink_name} ]; then
+		if [ -e "${HOME}/${slink_name}" ]; then
+			if ! [ -h "${HOME}/${slink_name} ]; then
 				if ! [ -d ${DOTBKP} ]; then
 					mkdir -p ${DOTBKP}
 				fi
-			mv -v "~/${slink_name}" "${DOTBKP}/"
+			mv -v "${HOME}/${slink_name}" "${DOTBKP}/"
 			fi
 		fi
-		ln -snvf "${dotfiles}" "~/${slink_name}"
+		ln -snvf "${dotfiles}" "${HOME}/${slink_name}"
 	done
 	# Cleanup brew entry in dot.profile/dot.bashrc
 	# Get that entry from current .bashrc/.profile before moving it to backup
