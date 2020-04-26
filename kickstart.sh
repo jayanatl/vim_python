@@ -9,11 +9,13 @@
 # Exit incase of any error
 set -e
 
-[[ ${PWD} != ${HOME} ]] && {
-  echo "Going HOME(${HOME})..."
-  echo "Run 'popd' if something goes wrong"
-  pushd ${HOME} >/dev/null
-}
+#[[ ${PWD} != ${HOME} ]] && {
+#  echo "Going HOME(${HOME})..."
+#  echo "Run 'popd' if something goes wrong"
+#  pushd ${HOME} >/dev/null
+#}
+
+cd ${HOME}
 
 # Grab library and load it
 curl -L https://raw.githubusercontent.com/jayanatl/dotfiles/jayan_centos7/bin/common.sh > /tmp/common.sh
@@ -77,12 +79,12 @@ git clone ${repoUrl}
 mv dotfiles .dotfiles
 cd .dotfiles
 sed -i.bak '/url/s|https://\(.*.com\)/|git@\1:|' .git/config
-git checkout ${branch}
+git checkout ${branch} || { error Unable to switch to branch: ${branch}; exit 127; }
 
 currentBranch=$(git rev-parse --abbrev-ref HEAD)
-if [[ ${currentBranch} != ${branch} ]]; then
+new_br=${USER}_${HOSTNAME}
+if [[ ${currentBranch} != ${new_br} ]]; then
   echo Creating a branch from ${currentBranch}, for new changes
-  new_br=${USER}_${HOSTNAME}
   git checkout -b ${new_br}
 fi
 
