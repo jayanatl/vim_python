@@ -1,3 +1,5 @@
+-2: Backup
+-1: nvim config
 0. Simple and easy to enhance
 1. make bash_profile to load bashrc and put tool specific config into bashrc and profile (not bash_profile) 
 2. Consolodate common load/checks into a function
@@ -13,3 +15,7 @@
 9. Capture log of installation
 10. Better readme
 11. Read defaults from existing configs?
+
+# Done
+1. Root
+2. Sudo
