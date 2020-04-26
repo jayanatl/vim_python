@@ -87,6 +87,7 @@ fi
 for step in $(list_install_steps); do
     action "Installing ${step}"
 	echo ${step}/install.sh
+	${step}/install.sh
 done
 
 # Place for post install config?
