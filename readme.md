@@ -12,7 +12,9 @@ bash <(curl -L https://raw.githubusercontent.com/jayanatl/dotfiles/${branch}/kic
 ```
 
 # NOTE
+
 ## EVERYTHING BELOW IS OUTDATED, DO NOT USE
+
 
 >NOTE: If you are using Windows, install [powerline fonts](https://github.com/powerline/fonts) and configure your terminal emulator to use those fonts.
 >Prefered font: noto mono for powerline
