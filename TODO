@@ -1,0 +1,14 @@
+0. Simple and easy to enhance
+1. make bash_profile to load bashrc and put tool specific config into bashrc and profile (not bash_profile) 
+2. Consolodate common load/checks into a function
+3. Read git user, email, id and configure git
+4. Make brew install non-interactive
+5. Gather info about all tools first and do an unattended installation
+   a. Using a configfile
+   b. Do post install config (this may be more preferable?)
+   c. Interactive before execution? using the config file?
+6. Post install for each tool
+7. Reduce noise? Quieter brew installations?
+8. Better debug mode?
+9. Capture log of installation
+10. Better readme
