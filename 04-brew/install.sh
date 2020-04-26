@@ -23,7 +23,7 @@ OS=$(this_os)
 		ok "Brew is already installed"
 	else
 		# Install brew
-		#/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 		# Configure brew
 		if [[ ${OS} =~ ^(centos|redhat|fedora)$ ]]; then
