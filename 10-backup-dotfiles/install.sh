@@ -23,22 +23,24 @@ if [[ ${OP} == "install" ]]; then
 # Install                  #
 ############################
 	epoc=$(date +%s)
-	DOTBKP="~/.dotfiles_backup/files/${epoch}"
+	DOTBKP="${HOME}/.dotfiles_backup/files/${epoch}"
 	echo "Baking up dot files that are being replaced"
 	for dotfile in $(ls -d files/homedir/dot.*); do
-		echo "Here DotFile: ${dotfile}"
+		echo "DotFile: ${dotfile}"
 		fname=$(basename ${dotfile})
 		slink_name=${fname/dot}
+		echo "fname: ${fname}"
+		echo "slink_name: ${slink_name}"
 		 
 		if [ -e "${HOME}/${slink_name}" ]; then
-			if ! [ -h "${HOME}/${slink_name} ]; then
+			if ! [ -h "${HOME}/${slink_name}" ]; then
 				if ! [ -d ${DOTBKP} ]; then
 					mkdir -p ${DOTBKP}
 				fi
-			mv -v "${HOME}/${slink_name}" "${DOTBKP}/"
+			mv -v "${HOME}/${slink_name}" ${DOTBKP}/
 			fi
 		fi
-		ln -snvf "${dotfiles}" "${HOME}/${slink_name}"
+		ln -snvf "${PWD}/${dotfile}" "${HOME}/${slink_name}"
 	done
 	# Cleanup brew entry in dot.profile/dot.bashrc
 	# Get that entry from current .bashrc/.profile before moving it to backup
