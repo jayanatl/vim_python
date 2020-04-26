@@ -19,11 +19,11 @@ function bot() {
 }
 
 function running() {
-    echo -en "$COL_YELLOW Executing $COL_RESET" $1
+    echo -e "$COL_YELLOW Executing $COL_RESET" $1
 }
 
 function action() {
-    echo -en "\n$COL_YELLOW[$1]:$COL_RESET"
+    echo -e "\n$COL_YELLOW[$1]:$COL_RESET"
 }
 
 function warn() {

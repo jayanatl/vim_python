@@ -86,7 +86,6 @@ fi
 # Start execution
 for step in $(list_install_steps); do
     action "Installing ${step}"
-	echo ${step}/install.sh
 	${step}/install.sh
 done
 
