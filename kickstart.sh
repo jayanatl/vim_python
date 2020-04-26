@@ -79,9 +79,12 @@ cd .dotfiles
 sed -i.bak '/url/s|https://\(.*.com\)/|git@\1:|' .git/config
 git checkout ${branch}
 
-echo Creating new branch for new changes
-new_br=${USER}_${HOSTNAME}
-git checkout -b ${new_br}
+currentBranch=$(git rev-parse --abbrev-ref HEAD)
+if [[ ${currentBranch} != ${branch} ]]; then
+  echo Creating a branch from ${currentBranch}, for new changes
+  new_br=${USER}_${HOSTNAME}
+  git checkout -b ${new_br}
+fi
 
 # Start execution
 while step in $(list_install_steps); do
