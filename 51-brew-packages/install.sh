@@ -19,10 +19,10 @@ is_sudo
 OS=$(this_os)
 scriptDir=$(dirname $0)
 
+if [[ ${OP} == "install" ]]; then
 ############################
 # Install                  #
 ############################
-[[ ${OP} == "install" ]] && {
 
     case ${OS} in
       Darwin | darwin)
@@ -42,13 +42,12 @@ scriptDir=$(dirname $0)
         ;;
     esac
 
-}
 
 
+elif [[ ${OP} == "uninstall" ]]; then
 ############################
 # Uninstall                #
 ############################
-[[ ${OP} == "uninstall" ]] && {
 
     case ${OS} in
       Darwin | darwin)
@@ -68,4 +67,4 @@ scriptDir=$(dirname $0)
         ;;
     esac
 
-}
+fi
