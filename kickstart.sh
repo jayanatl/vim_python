@@ -13,7 +13,11 @@ cd ${HOME}
 
 # Grab library and load it
 curl -L https://raw.githubusercontent.com/jayanatl/dotfiles/jayan_centos7/bin/common.sh > /tmp/common.sh
-source /tmp/common.sh || { error "Unable to load common.sh"; exit 127; }
+source /tmp/common.sh
+if [ $? -ne 0 ] then;
+echo "Error: Unable to load common.sh"
+exit 127
+fi
 
 OS=$(this_os)
 user_checks
