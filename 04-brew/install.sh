@@ -26,7 +26,7 @@ if [[ ${OP} == "install" ]]; then
 		ok "Brew is already installed"
 	else
 		# Install brew
-		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+		yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 		# Configure brew
 		if [[ $(uname) == "Linux" ]]; then

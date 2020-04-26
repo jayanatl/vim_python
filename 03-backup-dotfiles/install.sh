@@ -23,7 +23,7 @@ if [[ ${OP} == "install" ]]; then
 # Install                  #
 ############################
 	epoc=$(date +%s)
-	DOTBKP="${HOME}/.dotfiles_backup/files/${epoch}"
+	DOTBKP="${HOME}/.dotfiles_backup/files/${epoc}"
 	echo "Baking up dot files that are being replaced"
 	for dotfile in $(ls -d files/homedir/dot.*); do
 		echo "DotFile: ${dotfile}"
