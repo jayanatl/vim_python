@@ -34,7 +34,7 @@ OS=$(this_os)
 			cat <<-\EOF | tee -a ~/.profile | tee -a ~/.bash_profile >> ~/.bashrc
 			test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
 			test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-			[$(uanme) -eq "Darwin"] && export PATH="/usr/local/sbin:$PATH" # brew shellenv related entry for mac
+			[ $(uname) -eq "Darwin" ] && export PATH="/usr/local/sbin:$PATH" # brew shellenv related entry for mac
 EOF
 			# ^^^^ Adding <tab>EOF here as POSIX here-document honor <tab>
 		fi
