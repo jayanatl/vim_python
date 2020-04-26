@@ -26,18 +26,14 @@ OS=$(this_os)
 		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 		# Configure brew
-		if [[ ${OS} =~ ^(centos|redhat|fedora)$ ]]; then
+		if [[ $(uname) == "Linux" ]]; then
 			# Cleanup entry if already there
 			sed -i "/brew shellenv/d" ~/.profile ~/.bash_profile ~/.bashrc 2>/dev/null
 
 			# Add new entries to above files
-			cat <<-\EOF | tee -a ~/.profile | tee -a ~/.bash_profile >> ~/.bashrc
 			test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
 			test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-			[[ $(uname) == "Darwin" ]] && export PATH="/usr/local/sbin:$PATH" # brew shellenv related entry for mac
-EOF
-			source ~/.profile
-			# ^^^^ Adding <tab>EOF here as POSIX here-document honor <tab>
+			echo "eval \$($(brew --prefix)/bin/brew shellenv)" | tee -a ~/.bashrc >> ~/.bash_profile
 		fi
 	fi
 }
