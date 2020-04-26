@@ -36,7 +36,11 @@ if [[ ${OP} == "install" ]]; then
  PYTHON="${nvim_venv}/bin/python"
  PIP="${nvim_venv}/bin/pip"
  ${PIP} install --upgrade pip
- ${PIP} install neovim flake8 isort black
+ ${PIP} install neovim \
+	 flake8 \
+	 isort \
+	 black \
+	 jedi
 
  # Put python info into init.vim
  sed -i "/let g:python3/s|=.*|= expand('${PYTHON}')|" ~/.config/nvim/init.vim
@@ -51,6 +55,6 @@ elif [[ ${OP} == "uninstall" ]]; then
  # Remove dotfile links
  # Restore old files
 
- brew remove neovim 
+ brew remove neovim
 
 fi

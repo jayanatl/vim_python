@@ -47,7 +47,7 @@ call plug#end()
 
 " Neovim Python interpretter configuration
 let g:python_host_prog = expand('/bin/python2')
-let g:python3_host_prog = expand('/bin/python3.6')
+let g:python3_host_prog = expand('/home/jayan/.venv/nvim/bin/python')
 
 " use 256 colors when possible
 if (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256') || has('nvim')
