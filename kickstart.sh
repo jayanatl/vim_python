@@ -87,7 +87,7 @@ if [[ ${currentBranch} != ${branch} ]]; then
 fi
 
 # Start execution
-while step in $(list_install_steps); do
+for step in $(list_install_steps); do
     echo ${step}/install.sh
 done
 
