@@ -19,7 +19,7 @@ cd ${HOME}
 
 # Grab library and load it
 curl -L https://raw.githubusercontent.com/jayanatl/dotfiles/jayan_centos7/bin/common.sh > /tmp/common.sh
-source /tmp/common.sh || { echo Unable to load common.sh; exit 127; }
+source /tmp/common.sh || { error "Unable to load common.sh"; exit 127; }
 
 OS=$(this_os)
 user_checks
@@ -79,7 +79,7 @@ git clone ${repoUrl}
 mv dotfiles .dotfiles
 cd .dotfiles
 sed -i.bak '/url/s|https://\(.*.com\)/|git@\1:|' .git/config
-git checkout ${branch} || { error Unable to switch to branch: ${branch}; exit 127; }
+git checkout ${branch} || { error "Unable to switch to branch": ${branch}; exit 127; }
 
 currentBranch=$(git rev-parse --abbrev-ref HEAD)
 new_br=${USER}_${HOSTNAME}
