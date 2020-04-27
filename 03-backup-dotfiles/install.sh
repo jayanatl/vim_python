@@ -42,6 +42,10 @@ if [[ ${OP} == "install" ]]; then
 		fi
 		ln -snvf "${PWD}/${dotfile}" "${HOME}/${slink_name}"
 	done
+	# Leaving .bashrc out of dotfiles repo but forcing it to load .profile
+	echo '[ -z ${PROFILELOADED+x} ] && source ~/.profile || true # backup-dotfiles' >> ~/.bashrc
+	
+	# Review following lines and cleanup!
 	# Cleanup brew entry in dot.profile/dot.bashrc
 	# Get that entry from current .bashrc/.profile before moving it to backup
 
