@@ -76,6 +76,7 @@ currentBranch=$(git rev-parse --abbrev-ref HEAD)
 new_br=${USER}_${HOSTNAME}
 if [[ ${currentBranch} != ${new_br} ]]; then
   echo "${currentBranch} did not match ${new_br}"
+  echo "Creating new branch <userid>_<hostname> to track local changes"
   git checkout -b ${new_br}
 fi
 
