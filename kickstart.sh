@@ -43,11 +43,6 @@ case ${OS} in
     ;;
 esac
 
-
-echo Setting up repo url
-branch=${1:-branch}
-gitRepo=${2:-"jayanatl/dotfiles"}
-
 if [[ ${gitRepo} =~ ^http.*.git$ ]]; then
   repoUrl=${gitRepo}
 else
