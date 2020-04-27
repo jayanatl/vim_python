@@ -2,6 +2,9 @@
 alias vi='nvim'
 alias vim='nvim'
 
+# Variable to help detect whether this file is sourced, used in ~/.bashrc
+export PROFILELOADED=true
+
 # Load enable ~/.pythonrc
 export PYTHONSTARTUP=~/.pythonrc
 
