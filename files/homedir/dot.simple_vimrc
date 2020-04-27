@@ -1,0 +1,10 @@
+ set ruler
+ set ai et sw=2 ts=2
+ vmap < <gv
+ vmap > >gv
+ let mapleader = ","
+ nmap <leader>p :set paste!<CR>
+ nmap <leader>* :set list!<CR>
+ nmap <leader># :set nu!<CR>
+ nmap <leader>E :qa!<CR>
+ nmap <leader>e :q!<CR>

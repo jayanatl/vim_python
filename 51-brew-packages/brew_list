@@ -1,0 +1,9 @@
+# gnupg
+# jq
+# sipcalc
+# tmux
+tree
+# unrar
+# neofetch
+# direnv
+# implement post install hook that would be needed for each tool

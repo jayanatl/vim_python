@@ -1,0 +1,24 @@
+Adobe Acrobat Reader DC.app
+Automator.app
+Brave Browser.app
+Enpass.app
+Firefox.app
+Google Chrome.app
+Grammarly.app
+Mischief-Free.app
+NoMAD.app
+Postman.app
+Preview.app
+QuickTime Player.app
+Royal TSX.app
+Skitch.app
+Slack.app
+Spectacle.app
+Thunderbird.app
+Time Machine.app
+Typora.app
+VLC.app
+VMware Horizon Client.app
+VirtualBox.app
+Visual Studio Code.app
+Wacom Tablet.localized
