@@ -12,8 +12,9 @@ set -e
 cd ${HOME}
 
 # Grab library and load it
-branch="devel"
-curl -L "https://raw.githubusercontent.com/jayanatl/dotfiles/${branch}/bin/common.sh" > /tmp/common.sh
+branch=${1:-"devel"}
+gitRepo=${2:-"jayanatl/dotfiles"}
+curl -L "https://raw.githubusercontent.com/${gitRepo}/${branch}/bin/common.sh" > /tmp/common.sh
 source /tmp/common.sh || { echo "Error: Unable to load common.sh"; exit 127; }
 
 OS=$(this_os)
@@ -44,7 +45,7 @@ esac
 
 
 echo Setting up repo url
-branch=${1:-"refactor_mac"}
+branch=${1:-branch}
 gitRepo=${2:-"jayanatl/dotfiles"}
 
 if [[ ${gitRepo} =~ ^http.*.git$ ]]; then
