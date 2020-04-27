@@ -45,7 +45,7 @@ if [[ ${OP} == "install" ]]; then
  # Put python info into init.vim
  sed -i "/let g:python3/s|=.*|= expand('${PYTHON}')|" ~/.config/nvim/init.vim
  # Install plugs
- nvim -E +PlugInstall +qall
+ nvim -E +PlugInstall +qall || true
 
 
 elif [[ ${OP} == "uninstall" ]]; then
