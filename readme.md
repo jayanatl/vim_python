@@ -41,6 +41,7 @@ The creator or contributers of this repository is not responsible if your machin
 - [ ] fix current configuration for duplicate entries and may be remove unwanted plugins to optimize
 - [ ] disable unwanted plugins by default
 - [ ] remove output from .profile so that scp works fine
+- [ ] go away from airline to default status line. Ref. https://www.reddit.com/r/vim/comments/ham6uz/lightline_vs_airline_which_one_is_better_looking/
 
 ---
 
