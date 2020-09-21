@@ -56,6 +56,8 @@ echo Creating dotfiles_archive folder
 DOTBKP=".dotfiles_backup"
 mkdir -p "${DOTBKP}/repo"
 
+#TODO:
+# 1. Make sure profile load .repo/profile instead of overwriting .profile with the content thus loosing what is already in .profile
 
 echo Arciving old copy of dotfiles if present
 if [ -d .dotfiles ]; then
